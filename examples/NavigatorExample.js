@@ -13,17 +13,19 @@ class NavigatorExample extends React.Component {
   render() {
     return (
       <MenuContext>
-        <Router>
-          <Scene key="root">
-            <Scene key="login" component={Page} title="Login" renderRightButton={NavigatorMenu}/>
-            <Scene key="register" component={Page} title="Register"/>
-            <Scene key="home" component={Page}/>
-          </Scene>
-        </Router>
+        <Router scenes={scenes} />
       </MenuContext>
     );
   }
 }
+
+const scenes = Actions.create(
+    <Scene key="root">
+      <Scene key="login" component={Page} title="Login" renderRightButton={NavigatorMenu}/>
+      <Scene key="register" component={Page} title="Register"/>
+      <Scene key="home" component={Page}/>
+    </Scene>
+);
 
 const Page = () => (
     <View style={{flexDirection: 'column', padding: 70}}>
